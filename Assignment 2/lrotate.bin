@@ -1,0 +1,12 @@
+; Left-rotates the bits of the value at 0x3050 once.
+; CSC 225, Assignment 2
+; Given code, Winter '20
+
+0011 0000 0000 0000     ; Start at 0x3000.
+0010 000 001001111      ; LD R0 #79 (x3050)
+0001 001 000 000 000    ; Add R1, R0 R0
+0001 000 000 1 00000    ; Add R0 on-self with 0 ofsett
+0000 011 000000001      ; BRn #1 - Increase Branch by 1
+0001 001 001 1 00001    ; Add 1 to R1
+0011 001 001001011      ; ST R1 #75
+1111 0000 00100101      ; HALT
